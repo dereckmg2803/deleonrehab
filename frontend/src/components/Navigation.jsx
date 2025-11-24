@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Button } from './ui/button';
 import { Menu, X } from 'lucide-react';
 import { mockData } from '../mock/data';
@@ -8,6 +8,7 @@ const Navigation = () => {
   const { logo, ctaButton } = mockData.navigation;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
 
   const menuItems = [
     { label: 'Home', path: '/' },
@@ -19,6 +20,11 @@ const Navigation = () => {
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
   const isActive = (path) => location.pathname === path;
+
+  const handleBookingClick = () => {
+    navigate('/booking');
+    setIsMenuOpen(false);
+  };
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
@@ -53,7 +59,10 @@ const Navigation = () => {
           </div>
           
           {/* Desktop CTA Button */}
-          <Button className="hidden md:block bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-md font-medium transition-colors duration-200">
+          <Button 
+            onClick={handleBookingClick}
+            className="hidden md:block bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-md font-medium transition-colors duration-200"
+          >
             {ctaButton}
           </Button>
 
@@ -86,7 +95,10 @@ const Navigation = () => {
               </Link>
             ))}
             <div className="pt-2">
-              <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-md font-medium transition-colors duration-200">
+              <Button 
+                onClick={handleBookingClick}
+                className="w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-md font-medium transition-colors duration-200"
+              >
                 {ctaButton}
               </Button>
             </div>
