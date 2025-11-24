@@ -212,15 +212,18 @@ frontend:
 
   - task: "Testimonials Carousel"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/frontend/src/components/TestimonialsSection.jsx"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "testing"
         comment: "Need to test testimonial display with 5 stars, text, author info, avatar, and left/right navigation buttons functionality"
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED: Testimonials carousel working with 5-star rating displayed, testimonial text 'My experience at the rehabilitation center was great...', author name 'Na-young Han' visible, author avatar displayed, navigation buttons present and clickable"
 
   - task: "Detail Section"
     implemented: true
