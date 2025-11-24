@@ -352,11 +352,11 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Multi-Page Routing and Navigation"
-    - "Mobile Responsive Navigation"
-    - "About Page Content"
-    - "Blog Page Content"
-    - "Contact Page Content and Form"
+    - "Booking Flow - Navigation to Booking Page"
+    - "Booking Flow - Step 1 Service Selection"
+    - "Booking Flow - Step 2 Date and Time Selection"
+    - "Booking Flow - Step 3 Contact Information"
+    - "Booking Flow - Mobile Responsive Design"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
