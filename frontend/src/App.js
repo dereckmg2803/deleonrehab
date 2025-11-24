@@ -1,31 +1,28 @@
 import React from 'react';
 import './App.css';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Navigation from './components/Navigation';
-import HeroSection from './components/HeroSection';
-import ImageGallery from './components/ImageGallery';
-import PartnersSection from './components/PartnersSection';
-import ServicesSection from './components/ServicesSection';
-import FeaturesSection from './components/FeaturesSection';
-import StatsSection from './components/StatsSection';
-import TestimonialsSection from './components/TestimonialsSection';
-import DetailSection from './components/DetailSection';
-import FAQSection from './components/FAQSection';
 import Footer from './components/Footer';
+import Home from './pages/Home';
+import About from './pages/About';
+import Blog from './pages/Blog';
+import Contact from './pages/Contact';
+import { Toaster } from './components/ui/toaster';
 
 function App() {
   return (
     <div className="App">
-      <Navigation />
-      <HeroSection />
-      <ImageGallery />
-      <PartnersSection />
-      <ServicesSection />
-      <FeaturesSection />
-      <StatsSection />
-      <TestimonialsSection />
-      <DetailSection />
-      <FAQSection />
-      <Footer />
+      <BrowserRouter>
+        <Navigation />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/contact" element={<Contact />} />
+        </Routes>
+        <Footer />
+        <Toaster />
+      </BrowserRouter>
     </div>
   );
 }
