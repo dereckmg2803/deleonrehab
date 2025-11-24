@@ -31,10 +31,16 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-200 shadow-lg hover:shadow-xl">
+            <Button 
+              onClick={() => navigate('/booking')}
+              className="bg-teal-600 hover:bg-teal-700 text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-200 shadow-lg hover:shadow-xl"
+            >
               {primaryCta}
             </Button>
-            <Button variant="outline" className="border-2 border-gray-600 hover:border-gray-500 bg-transparent text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-200 flex items-center gap-2">
+            <Button 
+              variant="outline" 
+              className="border-2 border-gray-600 hover:border-gray-500 bg-transparent text-white px-8 py-6 text-base font-medium rounded-md transition-all duration-200 flex items-center gap-2"
+            >
               <Star className="w-4 h-4" />
               {secondaryCta}
             </Button>
