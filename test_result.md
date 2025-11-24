@@ -347,16 +347,16 @@ frontend:
 
 metadata:
   created_by: "testing_agent"
-  version: "1.0"
-  test_sequence: 1
+  version: "2.0"
+  test_sequence: 2
 
 test_plan:
   current_focus:
-    - "Navigation Menu and CTA Button"
-    - "Hero Section Display and CTAs"
-    - "Testimonials Carousel"
-    - "FAQ Accordion Section"
-    - "Services Section with Cards"
+    - "Multi-Page Routing and Navigation"
+    - "Mobile Responsive Navigation"
+    - "About Page Content"
+    - "Blog Page Content"
+    - "Contact Page Content and Form"
   stuck_tasks: []
   test_all: true
   test_priority: "high_first"
