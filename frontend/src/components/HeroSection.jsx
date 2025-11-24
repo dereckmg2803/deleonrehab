@@ -5,6 +5,7 @@ import { Star } from 'lucide-react';
 import { mockData } from '../mock/data';
 
 const HeroSection = () => {
+  const navigate = useNavigate();
   const { badge, title, titleHighlight, description, footer, primaryCta, secondaryCta } = mockData.hero;
 
   return (
