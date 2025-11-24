@@ -1,15 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
+import { Menu, X } from 'lucide-react';
 import { mockData } from '../mock/data';
 
 const Navigation = () => {
-  const { logo, menuItems, ctaButton } = mockData.navigation;
+  const { logo, ctaButton } = mockData.navigation;
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const menuItems = [
+    { label: 'Home', path: '/' },
+    { label: 'About', path: '/about' },
+    { label: 'Blog', path: '/blog' },
+    { label: 'Contact', path: '/contact' }
+  ];
+
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+
+  const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          <div className="flex items-center space-x-2">
+          {/* Logo */}
+          <Link to="/" className="flex items-center space-x-2">
             <div className="w-12 h-12 bg-teal-600 rounded-full flex items-center justify-center">
               <svg className="w-6 h-6 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
@@ -17,25 +33,66 @@ const Navigation = () => {
               </svg>
             </div>
             <span className="text-xl font-semibold text-gray-900">{logo}</span>
-          </div>
+          </Link>
           
+          {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item, index) => (
-              <a
+              <Link
                 key={index}
-                href={item.href}
-                className="text-gray-700 hover:text-teal-600 transition-colors duration-200 font-medium"
+                to={item.path}
+                className={`font-medium transition-colors duration-200 ${
+                  isActive(item.path)
+                    ? 'text-teal-600'
+                    : 'text-gray-700 hover:text-teal-600'
+                }`}
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
           </div>
           
-          <Button className="bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-md font-medium transition-colors duration-200">
+          {/* Desktop CTA Button */}
+          <Button className="hidden md:block bg-teal-600 hover:bg-teal-700 text-white px-6 py-2.5 rounded-md font-medium transition-colors duration-200">
             {ctaButton}
           </Button>
+
+          {/* Mobile Menu Button */}
+          <button
+            onClick={toggleMenu}
+            className="md:hidden p-2 rounded-md text-gray-700 hover:text-teal-600 hover:bg-gray-100 transition-colors duration-200"
+          >
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-white border-t border-gray-200 shadow-lg">
+          <div className="px-4 pt-2 pb-4 space-y-1">
+            {menuItems.map((item, index) => (
+              <Link
+                key={index}
+                to={item.path}
+                onClick={() => setIsMenuOpen(false)}
+                className={`block px-4 py-3 rounded-md font-medium transition-colors duration-200 ${
+                  isActive(item.path)
+                    ? 'bg-teal-50 text-teal-600'
+                    : 'text-gray-700 hover:bg-gray-50 hover:text-teal-600'
+                }`}
+              >
+                {item.label}
+              </Link>
+            ))}
+            <div className="pt-2">
+              <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white px-6 py-3 rounded-md font-medium transition-colors duration-200">
+                {ctaButton}
+              </Button>
+            </div>
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
