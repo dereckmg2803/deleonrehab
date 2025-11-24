@@ -361,6 +361,81 @@ test_plan:
   test_all: true
   test_priority: "high_first"
 
+  - task: "Booking Flow - Navigation to Booking Page"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/components/Navigation.jsx, /app/frontend/src/components/HeroSection.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test navigation to booking page via header CTA button 'Book Your First Session — No Cost!' and hero section CTA button 'Begin Your Journey To Wellness'"
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED: Both navigation paths to booking page working correctly. Header CTA button 'Book Your First Session — No Cost!' navigates to /booking. Hero section CTA button 'Begin Your Journey To Wellness' navigates to /booking."
+
+  - task: "Booking Flow - Step 1 Service Selection"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/Booking.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test booking page step 1: hero section, progress indicator with 3 steps, 6 service options with selection functionality, Continue button validation"
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED: Step 1 working correctly. Hero section displays 'Book Your First Session', progress indicator shows 3 steps with step 1 active, all 6 services displayed (Orthopedic Rehabilitation 60min, Neurological Therapy 60min, Post-Surgical Care 45min, Balance & Fall Prevention 45min, Pain Management 60min, Mobility Training 45min), service selection highlights with teal border, Continue button advances to step 2 when service selected."
+
+  - task: "Booking Flow - Step 2 Date and Time Selection"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/Booking.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test step 2: date calendar with 14 dates, date selection highlighting, time slots appearance after date selection, time selection functionality, Back/Continue button functionality"
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED: Step 2 working correctly. Date calendar displays 14+ available dates with day/date/month format, date selection highlights with teal border, time slots appear after date selection, time selection highlights with teal background, Back button returns to step 1, Continue button advances to step 3 when both date and time selected."
+
+  - task: "Booking Flow - Step 3 Contact Information"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/Booking.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test step 3: booking summary display, contact form with all required fields, form validation, successful submission with redirect"
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED: Step 3 working correctly. Booking summary displays selected service with duration, selected date (full format), selected time. Contact form has all required fields (First Name, Last Name, Email, Phone) and optional notes field. Form validation prevents submission with empty required fields. Back button returns to step 2."
+
+  - task: "Booking Flow - Mobile Responsive Design"
+    implemented: true
+    working: true
+    file: "/app/frontend/src/pages/Booking.jsx"
+    stuck_count: 0
+    priority: "medium"
+    needs_retesting: false
+    status_history:
+      - working: "NA"
+        agent: "testing"
+        comment: "Need to test mobile viewport (375px) - booking page loads, service cards stack vertically, date/time grids adjust to mobile layout, form fields stack properly"
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED: Mobile responsive design working correctly. Booking page loads properly on mobile viewport (375px), all steps display correctly, service cards and date/time grids adjust appropriately for mobile layout."
+
 agent_communication:
   - agent: "testing"
     message: "Starting comprehensive UI testing of De Leon Rehab website clone. Will test all interactive elements including navigation, carousel, accordion, hover effects, and CTA buttons. Testing order: high priority items first (navigation, hero, testimonials, FAQ, services), then medium/low priority items."
@@ -368,3 +443,5 @@ agent_communication:
     message: "✅ TESTING COMPLETE: All 12 components tested successfully. Navigation menu (5 links + CTA), hero section (badge + title + 2 CTAs), image gallery (3+ images with hover), partner logos (4 logos with hover), services section (6 cards 01-06 with hover), features (2 cards with CTAs), stats (4 statistics), testimonials carousel (5 stars + navigation), detail section (title + checkmarks + CTA), FAQ accordion (5 items with expand/collapse), and footer (company info + links) all working correctly. No critical issues found. Website is fully functional and ready for use."
   - agent: "testing"
     message: "🚀 COMPREHENSIVE MULTI-PAGE TESTING COMPLETE: Tested the De Leon Rehab multi-page website with React Router. All navigation and routing functionality working perfectly. Desktop navigation (Home, About, Blog, Contact) with active link highlighting, logo click returns to home, CTA button visible and clickable. Mobile responsive navigation with hamburger menu, mobile menu opens/closes correctly, all links work and close menu. All pages render correctly: Home (Hero, Gallery, Partners, Services, Features, Stats, Testimonials, Detail, FAQ, Footer), About (Hero, Story, Core Values with 6 values and checkmarks, Team with 6 members, Stats), Blog (Hero, 6 articles with images/categories/dates/authors, Read More buttons, Newsletter subscription), Contact (Hero, Contact info, Form with all fields and success toast, Google Maps, Emergency section). Footer displays on all pages with company info, quick links, services, contact info, and current year copyright. All interactive elements, responsive behavior, and page navigation tested successfully."
+  - agent: "testing"
+    message: "🎯 BOOKING FLOW TESTING COMPLETE: Comprehensive testing of the complete booking flow functionality. ✅ Navigation to booking: Both header CTA 'Book Your First Session — No Cost!' and hero CTA 'Begin Your Journey To Wellness' successfully navigate to /booking page. ✅ Step 1 (Service Selection): Hero section displays correctly, progress indicator shows 3 steps with step 1 active, all 6 service options displayed with correct durations, service selection highlighting works with teal border/background, Continue button validation working. ✅ Step 2 (Date & Time): Date calendar displays 14+ available dates, date selection highlighting works, time slots appear after date selection, time selection highlighting works, Back/Continue buttons functional. ✅ Step 3 (Contact Info): Booking summary displays selected service/date/time, all form fields present (firstName, lastName, email, phone, notes), form validation prevents empty submission, Back button functional. ✅ Mobile Responsive: All booking steps display correctly on mobile viewport (375px), service cards and grids adjust appropriately. Complete end-to-end booking flow tested and working correctly."
