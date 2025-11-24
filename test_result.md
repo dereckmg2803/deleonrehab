@@ -242,15 +242,18 @@ frontend:
 
   - task: "FAQ Accordion Section"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/frontend/src/components/FAQSection.jsx"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "testing"
         comment: "Need to test FAQ accordion functionality - multiple FAQ items with click to expand/collapse"
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED: FAQ section with title 'Frequently Asked Questions' visible, all 5 FAQ items present and functional (What services do you offer?, Do you accept insurance?, What areas do you serve?, How do I schedule an appointment?, What should I expect during my first session?), accordion expand/collapse functionality working"
 
   - task: "Footer Display"
     implemented: true
