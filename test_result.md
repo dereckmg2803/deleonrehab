@@ -122,15 +122,18 @@ frontend:
 
   - task: "Hero Section Display and CTAs"
     implemented: true
-    working: "NA"
+    working: true
     file: "/app/frontend/src/components/HeroSection.jsx"
     stuck_count: 0
     priority: "high"
-    needs_retesting: true
+    needs_retesting: false
     status_history:
       - working: "NA"
         agent: "testing"
         comment: "Need to test hero section badge, headline text, and two CTA buttons ('Begin Your Journey To Wellness' and 'Hear From Our Patients' with star icon)"
+      - working: true
+        agent: "testing"
+        comment: "✅ PASSED: Hero badge 'Experienced Therapists' visible, hero title text about De Leon Rehab Inc displayed, both CTA buttons ('Begin Your Journey To Wellness' and 'Hear From Our Patients') visible and clickable with star icon present"
 
   - task: "Image Gallery with Hover Effects"
     implemented: true
